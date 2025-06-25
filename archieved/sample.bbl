@@ -1,0 +1,328 @@
+\begin{thebibliography}{63}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Absil et~al.(2016)Absil, Gousenbourger, Striewski, and Wirth]{absil_interpolation}
+P.-A. Absil, Pierre-Yves Gousenbourger, Paul Striewski, and Benedikt Wirth.
+\newblock {Differentiable Piecewise-Bézier Surfaces on Riemannian Manifolds}.
+\newblock \emph{SIAM Journal on Imaging Sciences}, 9\penalty0 (4):\penalty0 1788--1828, 2016.
+
+\bibitem[Agrawal and Boyd(2020)]{dqp}
+Akshay Agrawal and Stephen Boyd.
+\newblock Disciplined quasiconvex programming.
+\newblock \emph{Optimization Letters}, 14\penalty0 (7):\penalty0 1643--1657, 2020.
+
+\bibitem[Agrawal et~al.(2018)Agrawal, Verschueren, Diamond, and Boyd]{agrawal2018rewriting}
+Akshay Agrawal, Robin Verschueren, Steven Diamond, and Stephen Boyd.
+\newblock A rewriting system for convex optimization problems.
+\newblock \emph{Journal of Control and Decision}, 5\penalty0 (1):\penalty0 42--60, 2018.
+
+\bibitem[Agrawal et~al.(2019)Agrawal, Diamond, and Boyd]{dgp}
+Akshay Agrawal, Steven Diamond, and Stephen Boyd.
+\newblock Disciplined geometric programming.
+\newblock \emph{Optimization Letters}, 13:\penalty0 961--976, 2019.
+
+\bibitem[Axen et~al.(2023)Axen, Baran, Bergmann, and Rzecki]{axen2023manifolds}
+Seth~D Axen, Mateusz Baran, Ronny Bergmann, and Krzysztof Rzecki.
+\newblock Manifolds. jl: an extensible julia framework for data analysis on manifolds.
+\newblock \emph{ACM Transactions on Mathematical Software}, 49\penalty0 (4):\penalty0 1--23, 2023.
+
+\bibitem[Bac{\'a}k(2014)]{bacak2014convex}
+Miroslav Bac{\'a}k.
+\newblock Convex analysis and optimization in {H}adamard spaces.
+\newblock In \emph{Convex Analysis and Optimization in Hadamard Spaces}. de Gruyter, 2014.
+
+\bibitem[Bergmann(2022)]{manoptjl}
+Ronny Bergmann.
+\newblock Manopt.jl: Optimization on manifolds in {J}ulia.
+\newblock \emph{Journal of Open Source Software}, 7\penalty0 (70):\penalty0 3866, 2022.
+\newblock \doi{10.21105/joss.03866}.
+
+\bibitem[Bezanson et~al.(2017)Bezanson, Edelman, Karpinski, and Shah]{bezanson2017julia}
+Jeff Bezanson, Alan Edelman, Stefan Karpinski, and Viral~B Shah.
+\newblock Julia: A fresh approach to numerical computing.
+\newblock \emph{SIAM review}, 59\penalty0 (1):\penalty0 65--98, 2017.
+
+\bibitem[Bhatia(1997)]{Bhatia1997_matrixanalysis}
+Rajendra Bhatia.
+\newblock \emph{Matrix Analysis}.
+\newblock Springer New York, 1997.
+
+\bibitem[Bhatia(2007)]{bhatia07positivedefinitematrices}
+Rajendra Bhatia.
+\newblock \emph{Positive Definite Matrices}.
+\newblock Princeton Series in Applied Mathematics. Princeton University Press, Princeton, NJ, USA, 2007.
+
+\bibitem[Bhatia(2015)]{bhatia_psd}
+Rajendra Bhatia.
+\newblock \emph{Positive Definite Matrices}.
+\newblock Princeton University Press, USA, 2015.
+\newblock ISBN 0691168253.
+
+\bibitem[Bien(2018)]{example-bien}
+Jacob Bien.
+\newblock {Sparse Estimation of a Gaussian’s Covariance Matrix}.
+\newblock Talk at Statistical and Applied Mathematical Sciences Institute, NC State University, 2018.
+
+\bibitem[Bonnabel(2013)]{bonnabel2013stochastic}
+Silvere Bonnabel.
+\newblock Stochastic gradient descent on {R}iemannian manifolds.
+\newblock \emph{IEEE Transactions on Automatic Control}, 58\penalty0 (9):\penalty0 2217--2229, 2013.
+
+\bibitem[Boumal(2023)]{boumal2020introduction}
+Nicolas Boumal.
+\newblock \emph{An introduction to optimization on smooth manifolds}.
+\newblock Cambridge University Press, 2023.
+
+\bibitem[Boumal et~al.(2014)Boumal, Mishra, Absil, and Sepulchre]{manopt}
+Nicolas Boumal, Bamdev Mishra, P.-A. Absil, and Rodolphe Sepulchre.
+\newblock {M}anopt, a {M}atlab toolbox for optimization on manifolds.
+\newblock \emph{Journal of Machine Learning Research}, 15\penalty0 (42):\penalty0 1455--1459, 2014.
+\newblock URL \url{https://www.manopt.org}.
+
+\bibitem[Boumal et~al.(2019)Boumal, Absil, and Cartis]{boumal2019global}
+Nicolas Boumal, Pierre-Antoine Absil, and Coralia Cartis.
+\newblock Global rates of convergence for nonconvex optimization on manifolds.
+\newblock \emph{IMA Journal of Numerical Analysis}, 39\penalty0 (1):\penalty0 1--33, 2019.
+
+\bibitem[Boyd and Vandenberghe(2004)]{Boyd_Vandenberghe_2004}
+Stephen Boyd and Lieven Vandenberghe.
+\newblock \emph{Convex Optimization}.
+\newblock Cambridge University Press, 2004.
+
+\bibitem[Brascamp and Lieb(1976)]{BL1}
+Herm~Jan Brascamp and Elliott~H. Lieb.
+\newblock Best constants in {Y}oung's inequality, its converse, and its generalization to more than three functions.
+\newblock \emph{Advances in Mathematics}, 20\penalty0 (2):\penalty0 151 -- 173, 1976.
+
+\bibitem[Brascamp et~al.(1974)Brascamp, Lieb, and Luttinger]{BL2}
+Herm~Jan Brascamp, Elliott~H. Lieb, and Joaquin~Mazdak Luttinger.
+\newblock A general rearrangement inequality for multiple integrals.
+\newblock \emph{Journal of Functional Analysis}, 17\penalty0 (2):\penalty0 227 -- 237, 1974.
+
+\bibitem[B{\"u}rgisser et~al.(2018)B{\"u}rgisser, Franks, Garg, Oliveira, Walter, and Wigderson]{burgisser2018efficient}
+Peter B{\"u}rgisser, Cole Franks, Ankit Garg, Rafael Oliveira, Michael Walter, and Avi Wigderson.
+\newblock Efficient algorithms for tensor scaling, quantum marginals, and moment polytopes.
+\newblock In \emph{2018 IEEE 59th Annual Symposium on Foundations of Computer Science (FOCS)}, pages 883--897. IEEE, 2018.
+
+\bibitem[Carlen and Cordero-Erausquin(2009)]{carlen2009subadditivity}
+Eric~A Carlen and Dario Cordero-Erausquin.
+\newblock Subadditivity of the entropy and its relation to {B}rascamp--{L}ieb type inequalities.
+\newblock \emph{Geometric and Functional Analysis}, 19\penalty0 (2):\penalty0 373--405, 2009.
+
+\bibitem[Carmichael et~al.(2013)Carmichael, Chen, Paul, and Peng]{Carmichael2013-wq}
+Owen Carmichael, Jun Chen, Debashis Paul, and Jie Peng.
+\newblock Diffusion tensor smoothing through weighted karcher means.
+\newblock \emph{Electron. J. Stat.}, 7\penalty0 (none):\penalty0 1913--1956, 2013.
+
+\bibitem[Cheng and Weber(2024)]{struct-reg}
+Andrew Cheng and Melanie Weber.
+\newblock {Structured Regularization for Constrained Optimization on the SPD Manifold}.
+\newblock \emph{In preparation}, 2024.
+
+\bibitem[Chewi et~al.(2020)Chewi, Maunu, Rigollet, and Stromme]{chewi2020gradient}
+Sinho Chewi, Tyler Maunu, Philippe Rigollet, and Austin~J Stromme.
+\newblock {Gradient descent algorithms for Bures-Wasserstein barycenters}.
+\newblock In \emph{Conference on Learning Theory}, pages 1276--1304. PMLR, 2020.
+
+\bibitem[Courtade et~al.(2017)Courtade, Fathi, and Pananjady]{courtade2017wasserstein}
+Thomas~A Courtade, Max Fathi, and Ashwin Pananjady.
+\newblock Wasserstein stability of the entropy power inequality for log-concave random vectors.
+\newblock In \emph{2017 IEEE International Symposium on Information Theory (ISIT)}, pages 659--663. IEEE, 2017.
+
+\bibitem[Dershowitz and Jouannaud(1990)]{dershowitz1990rewrite}
+Nachum Dershowitz and Jean-Pierre Jouannaud.
+\newblock Rewrite systems.
+\newblock In \emph{Formal models and semantics}, pages 243--320. Elsevier, 1990.
+
+\bibitem[Diamond and Boyd(2016)]{diamond2016cvxpy}
+Steven Diamond and Stephen Boyd.
+\newblock {CVXPY}: {A} {P}ython-embedded modeling language for convex optimization.
+\newblock \emph{Journal of Machine Learning Research}, 17\penalty0 (83):\penalty0 1--5, 2016.
+
+\bibitem[Dixit and Rackauckas(2023)]{vaibhav_kumar_dixit_2023_7738525}
+Vaibhav~Kumar Dixit and Christopher Rackauckas.
+\newblock Optimization.jl: A unified optimization package, March 2023.
+\newblock URL \url{https://doi.org/10.5281/zenodo.7738525}.
+
+\bibitem[Dvir et~al.(2018)Dvir, Garg, Oliveira, and Solymosi]{dvir2016rank}
+Zeev Dvir, Ankit Garg, Rafael Oliveira, and J{\'o}zsef Solymosi.
+\newblock Rank bounds for design matrices with block entries and geometric applications.
+\newblock \emph{Discrete Analysis}, 5:\penalty0 24, 2018.
+
+\bibitem[Garg et~al.(2018)Garg, Gurvits, Oliveira, and Wigderson]{garg2018algorithmic}
+Ankit Garg, Leonid Gurvits, Rafael Oliveira, and Avi Wigderson.
+\newblock {Algorithmic and optimization aspects of Brascamp-Lieb inequalities, via operator scaling}.
+\newblock \emph{Geometric and Functional Analysis}, 28\penalty0 (1):\penalty0 100--145, 2018.
+
+\bibitem[Gowda et~al.(2020)Gowda, Ma, and Protter]{symutils}
+Shashi Gowda, Yingbo Ma, and Mason Protter.
+\newblock {SymbolicUtils.jl}: Symbolic expressions, rewriting and simplification.
+\newblock \url{https://github.com/JuliaSymbolics/SymbolicUtils.jl}, 2020.
+
+\bibitem[Gowda et~al.(2022)Gowda, Ma, Cheli, Gw\'{o}\'{z}zd\'{z}, Shah, Edelman, and Rackauckas]{gowda2021high}
+Shashi Gowda, Yingbo Ma, Alessandro Cheli, Maja Gw\'{o}\'{z}zd\'{z}, Viral~B. Shah, Alan Edelman, and Christopher Rackauckas.
+\newblock High-performance symbolic-numerics via multiple dispatch.
+\newblock \emph{ACM Commun. Comput. Algebra}, 55\penalty0 (3):\penalty0 92–96, 2022.
+
+\bibitem[Grant et~al.(2006)Grant, Boyd, and Ye]{grant2006disciplined}
+Michael Grant, Stephen Boyd, and Yinyu Ye.
+\newblock \emph{{Disciplined Convex Programming}}.
+\newblock Springer, 2006.
+
+\bibitem[Gurvits(2004)]{gurvits}
+Leonid Gurvits.
+\newblock Classical complexity and quantum entanglement.
+\newblock \emph{Journal of Computer and System Sciences}, 69\penalty0 (3):\penalty0 448 -- 484, 2004.
+\newblock ISSN 0022-0000.
+\newblock Special Issue on STOC 2003.
+
+\bibitem[Hardt and Moitra(2013)]{pmlr-v30-Hardt13}
+Moritz Hardt and Ankur Moitra.
+\newblock Algorithms and hardness for robust subspace recovery.
+\newblock In \emph{Proceedings of the 26th Annual Conference on Learning Theory}, volume~30, pages 354--375, Princeton, NJ, USA, 12--14 Jun 2013. PMLR.
+
+\bibitem[Horn and Johnson(2013)]{horn_matrixanalysis}
+Roger~A. Horn and Charles~R. Johnson.
+\newblock \emph{{Matrix analysis}}.
+\newblock Cambridge University Press, 2013.
+
+\bibitem[Huang et~al.(2016)Huang, Absil, Gallivan, and Hand]{roptlib}
+Wen Huang, P.-A. Absil, K.~A. Gallivan, and Paul Hand.
+\newblock {ROPTLIB: an object-oriented C++ library for optimization on Riemannian manifolds}.
+\newblock Technical Report FSU16-14.v2, Florida State University, 2016.
+
+\bibitem[Jain et~al.(2017)Jain, Jin, Kakade, and Netrapalli]{jain2017global}
+Prateek Jain, Chi Jin, Sham Kakade, and Praneeth Netrapalli.
+\newblock Global convergence of non-convex gradient descent for computing matrix squareroot.
+\newblock In \emph{Artificial Intelligence and Statistics}, pages 479--488. PMLR, 2017.
+
+\bibitem[Jayasumana et~al.(2013)Jayasumana, Hartley, Salzmann, li, and Harandi]{clustering}
+Sadeep Jayasumana, Richard Hartley, Mathieu Salzmann, Hongdong li, and Mehrtash Harandi.
+\newblock {Kernel Methods on the Riemannian Manifold of Symmetric Positive Definite Matrices}.
+\newblock 06 2013.
+
+\bibitem[Jordan et~al.(2022)Jordan, Lin, and Vlatakis-Gkaragkounis]{jordan2022first}
+Michael Jordan, Tianyi Lin, and Emmanouil-Vasileios Vlatakis-Gkaragkounis.
+\newblock First-order algorithms for min-max optimization in geodesic metric spaces.
+\newblock \emph{Advances in Neural Information Processing Systems}, 35:\penalty0 6557--6574, 2022.
+
+\bibitem[Liu et~al.(2016)Liu, Courtade, Cuff, and Verd{\'u}]{liu2016smoothing}
+Jingbo Liu, Thomas~A Courtade, Paul Cuff, and Sergio Verd{\'u}.
+\newblock Smoothing {B}rascamp-{L}ieb inequalities and strong converses for common randomness generation.
+\newblock In \emph{2016 IEEE International Symposium on Information Theory (ISIT)}, pages 1043--1047. IEEE, 2016.
+
+\bibitem[Mariet and Sra(2015)]{mariet2015fixed}
+Zelda Mariet and Suvrit Sra.
+\newblock {Fixed-point algorithms for learning determinantal point processes}.
+\newblock In \emph{International Conference on Machine Learning}, pages 2389--2397. PMLR, 2015.
+
+\bibitem[Maronna et~al.(2006)Maronna, Martin, and Yohai]{Maronna2006}
+Ricardo~A. Maronna, R.~Douglas Martin, and Víctor~J. Yohai.
+\newblock \emph{{Robust Statistics: Theory and Methods}}.
+\newblock Wiley, March 2006.
+
+\bibitem[Mart{\'\i}nez-Rubio et~al.(2023)Mart{\'\i}nez-Rubio, Roux, Criscitiello, and Pokutta]{martinez2023accelerated}
+David Mart{\'\i}nez-Rubio, Christophe Roux, Christopher Criscitiello, and Sebastian Pokutta.
+\newblock {Accelerated Methods for Riemannian Min-Max Optimization Ensuring Bounded Geometric Penalties}.
+\newblock \emph{arXiv preprint arXiv:2305.16186}, 2023.
+
+\bibitem[Nguyen et~al.(2019)Nguyen, Shafieezadeh~Abadeh, Yue, Kuhn, and Wiesemann]{nguyen2019calculating}
+Viet~Anh Nguyen, Soroosh Shafieezadeh~Abadeh, Man-Chung Yue, Daniel Kuhn, and Wolfram Wiesemann.
+\newblock Calculating optimistic likelihoods using (geodesically) convex optimization.
+\newblock \emph{Advances in Neural Information Processing Systems}, 32, 2019.
+
+\bibitem[Ollila and Tyler(2014)]{ollila2014regularized}
+Esa Ollila and David~E Tyler.
+\newblock {Regularized $M$-estimators of scatter matrix}.
+\newblock \emph{IEEE Transactions on Signal Processing}, 62\penalty0 (22):\penalty0 6059--6070, 2014.
+
+\bibitem[Sra(2015)]{sra2015matrix}
+Suvrit Sra.
+\newblock On the matrix square root via geometric optimization.
+\newblock \emph{arXiv preprint arXiv:1507.08366}, 2015.
+
+\bibitem[Sra and Hosseini(2015)]{sra2015conic}
+Suvrit Sra and Reshad Hosseini.
+\newblock Conic geometric optimization on the manifold of positive definite matrices.
+\newblock \emph{SIAM Journal on Optimization}, 25\penalty0 (1):\penalty0 713--739, 2015.
+
+\bibitem[Sra et~al.()Sra, Vishnoi, and Yildiz]{sra_brascamplieb}
+Suvrit Sra, Nisheeth~K. Vishnoi, and Ozan Yildiz.
+\newblock {On Geodesically Convex Formulations for the Brascamp-Lieb Constant}.
+\newblock In \emph{Approximation, Randomization, and Combinatorial Optimization. Algorithms and Techniques (APPROX/RANDOM 2018)}, pages 25:1--25:15.
+
+\bibitem[Townsend et~al.(2016)Townsend, Koep, and Weichwald]{pymanopt}
+James Townsend, Niklas Koep, and Sebastian Weichwald.
+\newblock Pymanopt: A python toolbox for optimization on manifolds using automatic differentiation.
+\newblock \emph{Journal of Machine Learning Research}, 17\penalty0 (137):\penalty0 1–5, 2016.
+
+\bibitem[Tyler(1987)]{Tyler1987}
+David~E. Tyler.
+\newblock A distribution-free $m$-estimator of multivariate scatter.
+\newblock \emph{The Annals of Statistics}, 15\penalty0 (1), March 1987.
+
+\bibitem[Udell et~al.(2014)Udell, Mohan, Zeng, Hong, Diamond, and Boyd]{udell2014convex}
+Madeleine Udell, Karanveer Mohan, David Zeng, Jenny Hong, Steven Diamond, and Stephen Boyd.
+\newblock Convex optimization in {J}ulia.
+\newblock \emph{SC14 Workshop on High Performance Technical Computing in Dynamic Languages}, 2014.
+
+\bibitem[Udriste(1994)]{udriste1994convex}
+Constantin Udriste.
+\newblock \emph{Convex Functions and Optimization Methods on {R}iemannian Manifolds}, volume 297.
+\newblock Springer Science \& Business Media, 1994.
+
+\bibitem[Vishnoi(2018)]{Vishnoi2018GeodesicCO}
+Nisheeth~K. Vishnoi.
+\newblock Geodesic convex optimization: Differentiation on manifolds, geodesics, and convexity.
+\newblock \emph{ArXiv}, 2018.
+
+\bibitem[Weber and Sra(2021)]{weber2021projection}
+Melanie Weber and Suvrit Sra.
+\newblock {Projection-free nonconvex stochastic optimization on Riemannian manifolds}.
+\newblock \emph{IMA Journal of Numerical Analysis}, 42\penalty0 (4):\penalty0 3241--3271, 2021.
+
+\bibitem[Weber and Sra(2022{\natexlab{a}})]{thompson}
+Melanie Weber and Suvrit Sra.
+\newblock {Computing Brascamp-Lieb constants through the lens of Thompson geometry}.
+\newblock \emph{arXiv preprint arXiv:2208.05013}, 2022{\natexlab{a}}.
+
+\bibitem[Weber and Sra(2022{\natexlab{b}})]{weber2022riemannian}
+Melanie Weber and Suvrit Sra.
+\newblock {Riemannian Optimization via Frank-Wolfe Methods}.
+\newblock \emph{Mathematical Programming}, 2022{\natexlab{b}}.
+
+\bibitem[Weber and Sra(2023)]{weber2023global}
+Melanie Weber and Suvrit Sra.
+\newblock {Global optimality for Euclidean CCCP under Riemannian convexity}.
+\newblock In \emph{International Conference on Machine Learning}, 2023.
+
+\bibitem[Wiesel(2012)]{wiesel2012geodesic}
+Ami Wiesel.
+\newblock Geodesic convexity and covariance estimation.
+\newblock \emph{{IEEE Transactions on Signal Processing}}, 60\penalty0 (12):\penalty0 6182--6189, 2012.
+
+\bibitem[Wiesel and Zhang(2015)]{wieselstructuredcovariance}
+Ami Wiesel and Teng Zhang.
+\newblock Structured robust covariance estimation.
+\newblock \emph{Foundations and Trends{\textregistered} in Signal Processing}, 8\penalty0 (3):\penalty0 127–216, 2015.
+
+\bibitem[Zhang and Sra(2016)]{zhang2016first}
+Hongyi Zhang and Suvrit Sra.
+\newblock First-order methods for geodesically convex optimization.
+\newblock In \emph{COLT}, 2016.
+
+\bibitem[Zhang et~al.(2016)Zhang, J~Reddi, and Sra]{zhang2016riemannian}
+Hongyi Zhang, Sashank J~Reddi, and Suvrit Sra.
+\newblock Riemannian {SVRG}: Fast stochastic optimization on {R}iemannian manifolds.
+\newblock \emph{Advances in Neural Information Processing Systems}, 29, 2016.
+
+\bibitem[Zhang(2016)]{zhang2016robust}
+Teng Zhang.
+\newblock {Robust subspace recovery by Tyler's M-estimator}.
+\newblock \emph{Information and Inference: A Journal of the IMA}, 5\penalty0 (1):\penalty0 1--21, 2016.
+
+\end{thebibliography}

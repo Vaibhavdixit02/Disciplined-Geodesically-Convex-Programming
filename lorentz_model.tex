@@ -1,0 +1,412 @@
+\documentclass[twoside,11pt]{article}
+
+\usepackage{blindtext}
+\usepackage{multirow,booktabs}
+\usepackage{enumerate}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{fullpage}
+\usepackage{lipsum,stackengine}
+\setstackEOL{\\}
+\usepackage{lastpage}
+\usepackage{soul}
+\usepackage{enumitem}
+\usepackage[ruled,vlined]{algorithm2e}
+\usepackage{fancyhdr}
+\usepackage{mathrsfs}
+\usepackage{stackrel}
+\usepackage{wrapfig}
+\usepackage{setspace}
+\usepackage{calc}
+\usepackage{pdfpages}
+\usepackage{multicol}
+\usepackage{cancel}
+\usepackage[retainorgcmds]{IEEEtrantools}
+\usepackage[margin=3cm]{geometry}
+\usepackage{amsmath}
+\usepackage{macros}
+\newlength{\tabcont}
+\setlength{\parindent}{0.0in}
+\setlength{\parskip}{0.05in}
+\usepackage{empheq}
+\usepackage{framed}
+\usepackage[most]{tcolorbox}
+\usepackage{xcolor}
+\usepackage{minted}
+\usepackage{tikz}
+\usepackage{forest}
+\usepackage[font=small,labelfont=bf,margin=\parindent,tableposition=top]{caption}
+
+\colorlet{shadecolor}{orange!15}
+\parindent 0in
+\parskip 12pt
+\geometry{margin=1in, headsep=0.25in}
+
+\newcommand{\mw}[1]{\textcolor{blue}{\emph{MW: #1}}}
+\newcommand{\ac}[1]{\textcolor{cyan}{\emph{AC: #1}}}
+\newcommand{\vd}[1]{\textcolor{purple}{\emph{VD: #1}}}
+
+%%%%
+
+\usepackage[preprint]{jmlr2e}
+
+% Definitions of handy macros can go here
+
+\newcommand{\dataset}{{\cal D}}
+\newcommand{\fracpartial}[2]{\frac{\partial #1}{\partial  #2}}
+
+% Heading arguments are {volume}{year}{pages}{date submitted}{date published}{paper id}{author-full-names}
+
+\usepackage{lastpage}
+\jmlrheading{23}{2022}{1-\pageref{LastPage}}{1/21; Revised 5/22}{9/22}{21-0000}{Author One and Author Two}
+
+% Short headings should be running head and authors last names
+
+\ShortHeadings{Disciplined Geodesically Convex Programming}{Cheng and Dixit et al.}
+\firstpageno{1}
+
+\begin{document}
+
+\title{Disciplined Geodesically Convex Programming}
+
+\author{\name Andrew N. Cheng$^*$ {\email andrewcheng@g.harvard.edu \\
+       \addr Harvard University\\
+       Cambridge, MA 02138, USA}
+       \AND
+       \name Vaibhav Dixit$^*$ {\email vkdixit@mit.edu \\
+       \addr CSAIL, MIT\\
+       Cambridge, MA 02139, USA}
+       \AND
+       \name Melanie Weber \email mweber@seas.harvard.edu \\
+       \addr Harvard University\\
+       Cambridge, MA 02138, USA
+       }
+
+\editor{My editor}
+
+\maketitle
+\def\thefootnote{*}\footnotetext{Equal contribution. Co-first authors listed alphabetical.}
+
+
+
+
+%%%%%%%%%%%
+\section{Geodesic Convexity on the Lorentz Model}
+
+Let $\langle\cdot, \cdot\rangle_{\mathcal{L}}$ be the Lorentzian inner product of $x:=\left(x_1, \ldots, x_d, x_{d+1}\right)^{\top}$ and $y:=\left(y_1, \ldots, y_d, y_{d+1}\right)^{\top}$ on $\mathbb{R}^{n+1}$ defined as follows
+
+$$
+\langle x, y\rangle_{\mathcal{L}}:=x_1 y_1+\cdots+x_d y_d-x_{d+1} y_{d+1} .
+$$
+For each $x \in \real^{d+1}$, the \textit{Lorentzian norm} of $x$ is defined to be the complex number 
+\[
+\|x\| := \sqrt{\langle x, x \rangle_\Lorentz}
+\]
+
+For ease of exposition, one can also write 
+\[
+\langle x, y \rangle_\Lorentz = x^\top J y, \qquad \forall x,y \in \mathbb{H}^d
+\]
+where $J := \diag(1, \ldots, 1, -1) \in \real^{(d+1) \times (d+1)}$
+
+
+The $d$-dimension Lorentz model (i.e., hyperboloid) and its tangent space at a point $p$ are denoted as 
+
+\[
+\mathbb{H}^d:=\left\{p \in \mathbb{R}^{d+1}:\langle p, p\rangle_\Lorentz=-1, p_{d+1}>0\right\}, \quad T_p \mathbb{H}^n:=\left\{v \in \mathbb{R}^{d+1}:\langle p, v\rangle_\Lorentz =0\right\},
+\]
+respectively. For the Lorentz model, the Riemannian distance on $\mathbb{H}^d$ between $p, q \in \mathbb{H}^d$ is defined by 
+
+\begin{equation*}
+d_\Lorentz(p, q):=\operatorname{arcosh}(-\langle p, q\rangle_\Lorentz) .  \end{equation*}
+
+Then the Riemannian manifold $(\mathbb{H}^d, d_\Lorentz)$ is a Cartan-Hadamard manifold.
+
+The unique geodesic interpolating between $p, q \in \mathbb{H}^d$ can be expressed as
+\[
+\gamma_{p q}(t)=\left(\cosh t+\frac{\langle p, q\rangle_\Lorentz \sinh t}{\sqrt{\langle p, q\rangle_\Lorentz^2-1}}\right) p+\frac{\sinh t}{\sqrt{\langle p, q\rangle_\Lorentz^2-1}} q, \quad \forall t \in[0, d_\Lorentz(p, q)]
+\]
+
+
+\subsubsection{Lorentzian Atoms}
+
+\textbf{Log-Barrier.} Let $a = (0, \ldots, 0, 1) \in \real^{d+1}$ and define the geodesically convex set 
+\[
+\mathcal{C} := \{p \in \mathbb{H}^d: p_1 > 0, \ldots, p_n >0 \}. 
+\]
+The log-barrier function define as $\psi: \mathcal{C} \to \real$ defined by 
+\[
+\psi(p)=-\log  (-1-\langle a, p\rangle_\Lorentz)
+\]
+is geodesically convex.
+
+
+
+\textbf{Homogeneous Quadratic Functions.}  
+We investigate the geodesic convexity properties of quadratic functions $f: \mathbb{H}^{d} \to \real$ defined by $f(p) = p^\top A p$ where $A \in \real^{(d+1) \times (d+1)}$ is symmetric. Proposition 10~\citep{Ferreira2022} showed that deciding whether $f$ is geodesically convex with respect to Lorentz model is equivalent to solving the optimization problem 
+\[
+\begin{gathered}
+    \inf \left\{\sigma-\alpha-\bar{a}^{\top}(\bar{A}+\alpha \bar{I})^{-1} \bar{a}: \alpha \in\left(-\lambda_{\min }(\bar{A}), \sigma\right)\right\} 
+    \\
+    \text{where} \qquad A:=\left(\begin{array}{cc}
+\bar{A} & \bar{a} \\
+\bar{a}^{\top} & \sigma
+\end{array}\right), \quad \bar{A} \in \mathbb{R}^{d \times d}, \quad \bar{a} \in \mathbb{R}^{d \times 1}, \quad \sigma \in \mathbb{R}.
+\end{gathered}
+\]
+
+This requires us to find $\lambda_{\min}(\bar{A})$ and solve the constrained optimization problem 
+\[
+\begin{gathered}
+\min_{\alpha} \ \{g(\alpha) := - \alpha - \bar{a}^{\top}(\bar{A}+\alpha \bar{I})^{-1} \bar{a}\}
+\\ \text{subject to }  \alpha \in\left(-\lambda_{\min }(\bar{A}), \sigma\right)
+\end{gathered}
+\]
+Observe that $g(\alpha)$ is concave over the constraint and so this requires minimizing a concave function. Thus deciding the g-convexity of $f(p)$ in general cases can be expensive.
+
+In special cases, it is cheaper to decide the g-convexity of $f$.
+
+\begin{theorem}[Theorem 2~\citep{Ferreira2022}]
+Let $A \in \mathbb{R}^{(d+1) \times(d+1)}$ and $f: \mathbb{H}^d \rightarrow \mathbb{R}$ be defined by $f(p)=p^{\top} A p$. Then
+
+\begin{enumerate}
+\item  If $\sigma \geq-\lambda_{\min }(\bar{A})$ and $a=0$, then $f$ is geodesically convex;
+\item  If $\sigma+\lambda_{\min }(\bar{A})>2 \sqrt{a^{\top} a}$, then $f$ is geodesically convex.
+\end{enumerate}
+
+\end{theorem}
+
+
+
+\begin{example}[Theorem 5.1~\citep{Ferreira2022}]
+    Let $f(p) = p^\top A p$ where $A$ is symmetric positive definite. Then $f:\mathbb{H}^d \to \real$ is geodesically convex.
+\end{example}\label{ex:spd_hyperbolic}
+
+\begin{example}[Example 5.4~\citep{Ferreira2022}]
+    Take $A = \diag(a_1, \ldots, a_d, a_{d+1})$ and assume $a_{\min} + a_{d+1} \geq 0$ where $d_{\min} = \min\{a_1, \ldots, a_n\}$. Then 
+    \[
+    f(p) = \sum_{i=1}^n a_i p_i^2
+    \]
+    is g-convex. 
+\end{example}
+
+
+\paragraph{Nonhomogeneous Quadratic Functions.}
+In this section, we restrict our attention to the geodesic convexity properties of \emph{nonhomogeneous quadratic functions} $f:\mathbb{H}^d \to \real$ of the form  
+\[
+f(p) = p^\top A p + b^\top p + c \qquad  \text{where} \qquad A = A^\top  \in \real^{(d+1)\times(d+1)}, \ b \in \real^{d+1}, \ c \in \real.
+\]
+
+
+Unlike Euclidean space, the geodesic convexity of homogeneous and nonhomogeneous quadratic functions are non-trivially different. The main reason is due to the linear term $p \to b^\top p$ which may not be geodesically convex on $\mathbb{H}^d$. \citep{Ferreira2023_nonhomogeneous} is the first to establish results on the geodesic convexity of  nonhomogenous quadratic functions on the Lorentz model.
+
+
+
+
+
+
+Let 
+\[
+\begin{gathered}
+     A:=\left(\begin{array}{cc}
+\bar{A} & \bar{a} \\
+\bar{a}^{\top} & \sigma
+\end{array}\right), \quad \bar{A} \in \mathbb{R}^{d \times d}, \quad \bar{a} \in \mathbb{R}^{d \times 1}, \quad \sigma \in \mathbb{R} \\
+\text{and} \qquad b:=\binom{\bar{b}}{b_{n+1}} \in \mathbb{R}^{d+1}, \quad \bar{b} \in \mathbb{R}^d, \quad b_{d+1} \in \mathbb{R}
+\end{gathered}
+\]
+
+\begin{prop}[Proposition 3.8~\citep{Ferreira2023_nonhomogeneous}]
+    Let $\rho, c \in \mathbb{R}$ and $f: \mathbb{H}^d \rightarrow \mathbb{R}$ be defined by $f(p)=p^{\top} p+\rho p_{d+1}+$ c. Then, $f$ is hyperbolically convex if and only if $\rho \geq-4$.
+\end{prop}
+
+\begin{prop}[Corollary 3.10~\citep{Ferreira2023_nonhomogeneous}]\label{prop:nonhom_gconvex}
+    Let $A=A^{\top} \in \mathbb{R}^{(d+1) \times(d+1)}$ be a nonzero matrix, $b \in \mathbb{R}^{d+1}, c \in \mathbb{R}$, $f: \mathbb{H}^d \rightarrow \mathbb{R}$ be defined by $f(p)=p^{\top} A p+b^{\top} p+c$. If 
+    \[\lambda_{\min }(\bar{A})+\sigma \geq 2\|\bar{a}\|_2 \qquad \text{and} \qquad b_{n+1} \geq\|\bar{b}\|_2+4\|\bar{a}\|_2-2 \lambda_{\min }(\bar{A})-2 \sigma,\] 
+    then $f$ is hyperbolically convex. In particular; if $A=\mathrm{I}$ and $b_{n+1} \geq\|\bar{b}\|_2-4$, then $f$ is hyperbolically convex.
+\end{prop}
+
+\subsubsection{Lorentzian Rules}
+\begin{definition}[Lorentz Group]
+Let $J := \diag(1, \ldots, 1, -1) \in \real^{(d+1) \times (d+1)}$. The Lorentz group $G_\Lorentz$ is defined as 
+\[
+G_{\Lorentz}:=\left\{Q \in \mathbb{R}^{(d+1) \times(d+1)}: Q^{\top} \mathrm{J} Q=\mathrm{J}\right\} .
+\]
+
+\begin{remark}\label{remark:lorentz_group}
+    The Lorentz group is closed under inverses and transposes and preserves the Lorentz norm, i.e., $Q^{-1}, Q^\top \in G_\Lorentz$ and $\langle Qx,Qy \rangle_\Lorentz = \langle x,y \rangle_\Lorentz$ for all $Q \in G_\Lorentz$ and $x,y \in \mathbb{H}^d$. Also, $|\det (Q)| = 1$. 
+\end{remark}
+
+However, $Q \in G_\Lorentz$ need not be a \emph{global isometry} of $\mathbb{H}^d$. For example, 
+    \[
+    Q = \diag(1, \ldots, 1, -1) \in G_\Lorentz
+    \]
+    but for $x \in \mathbb{H}^d$ we have $(Qx)_{d+1} < 0$ and so $Qx \notin \mathbb{H}^d$.
+
+However, the following subgroup of the Lorentz group contains global isometries of $\mathbb{H}^d$.
+
+\begin{definition}[Orthochronous Lorentz Group]
+The \emph{orthochronous Lorentz group} denoted by $\mathcal{O}^+(1,d)$ is a subgroup of the Lorentz group that preserves the positivity of the last coordinate. That is 
+\[
+\mathcal{O}^+(1,d) := \{Q \in G_\Lorentz: (Qx)_{d+1} > 0 \text{ for all } x \in \real^{d+1} \text{ with } x_{d+1} > 0\}.
+\]
+    
+\end{definition}
+
+
+
+
+\begin{remark}
+    $\mathcal{O}^+(1,d)$ is also closed under inverses, transposes, and preserves the Lorentz norm. Moreover, if $O \in \mathcal{O}^+(1,d)$ then $O$ is a global isometry of $\mathbb{H}^d$. In particular, $O(\mathbb{H}^d) = \mathbb{H}^d.$
+\end{remark}
+
+
+
+\begin{example}[Lorentz Group Elements]
+We provide examples of Lorentz group elements. 
+\begin{enumerate}
+    \item $I \in \mathcal{O}^{+}(1,d)$ and $-I \in G_\Lorentz.$
+   
+    \item \textbf{(Spatial Inversion)}  $O = \diag(-1,\ldots, -1, 1) \in \real^{(d+1)\times(d+1)} \in \mathcal{O}^+(1,d)$
+    \item \textbf{(Time Reversal)} $Q = \diag(1, \ldots, 1, -1) \in \real^{(d+1)\times(d+1)} \in G_\Lorentz$
+    \item \textbf{(Lorentz Boost)} 
+    \[
+\mathcal{O}_{\text{boost}} =
+\begin{pmatrix}
+I_{d-1} & 0 & 0 \\
+0 & \cosh(\phi) & -\sinh(\phi) \\
+0 & -\sinh(\phi) & \cosh(\phi)
+\end{pmatrix} \in \mathcal{O}^+(1,d).
+\]
+    
+    \item \textbf{(Continuous Rotations in Planes)} Define a rotation matrix as 
+    \[
+    R_\theta = \begin{pmatrix}
+        \cos \theta & - \sin \theta
+        \\ \sin \theta & \cos \theta.
+    \end{pmatrix}
+    \]
+    Then 
+\[
+Q_{\text{block-rot}} =
+\begin{pmatrix}
+R_{12}(\theta_1) & 0 & 0 & 0 & 0 \\
+0 & R_{34}(\theta_2) & 0 & 0 & 0\\
+0 & 0 & \ddots & 0 & 0 \\
+0 & 0 & 0 & R_{(d-1)d}{(\theta_{d/2})} & 0 \\
+0 & 0 & 0 & 0 & 1
+\end{pmatrix} \in \mathcal{O}^{+}(1,d).
+\]
+
+
+
+
+
+
+
+     \item Let $x \in \real^{d+1}$ such that $\|x\|_\Lorentz > 0$. 
+    \[
+    Q := I - \left(\frac{2}{\|x\|_\Lorentz} \right)^2 x x^\top J \in G_\Lorentz
+    \]
+    \item Let $x,y \in \real^{d+1}$ such that $\|x\|_\Lorentz = \|y\|_\Lorentz = 1$. Then 
+    \[
+    Q=\mathrm{I}+2 y x^{\top} J-\left( \frac{1} {1+x^{\top} J y}\right)(x+y)(x+y)^{\top} J \in G_{\mathcal{L}} .
+    \]
+\end{enumerate}
+    
+\end{example}
+
+
+
+\end{definition}
+
+\begin{prop}[Proposition 5.1~\citep{Ferreira2022}]\label{prop:lorentz_composition}
+    Let $\mathcal{C} \subseteq \mathbb{H}^d$ be a hyperbolically convex set, $Q \in G_{\mathcal{L}}$ and $\mathcal{D}:=$ $\left\{Q^{-1} p: p \in \mathcal{C}\right\}$. The function $f: \mathcal{C} \rightarrow \mathbb{R}$ is geodesically convex if and only if $f \circ Q: \mathcal{D} \rightarrow \mathbb{R}$ defined by $f \circ Q(q):=f(Q q)$ is geodesically convex.
+\end{prop}
+
+\begin{remark}
+    Let $O \in \mathcal{O}^{+}(1,d)$ be an element of the orthochronous Lorentz group. If $f:\mathbb{H}^d \to \real$ is g-convex then $g(q) \defas f(O q): \mathbb{H}^d \to \real$ is g-convex.
+\end{remark}
+
+
+The following rule allows us to construct geodesically convex nonhomogenous functions from geodesically convex homogenous functions.
+
+
+\begin{prop}[Proposition 3.5~\cite{Ferreira2023_nonhomogeneous}]\label{prop:nonhom_hom}
+    Let $A=A^{\top} \in \mathbb{R}^{(n+1) \times(n+1)}, b \in \mathbb{R}^{n+1}, c \in \mathbb{R}, f: \mathbb{H}^n \rightarrow \mathbb{R}$ be defined by $f(p)=p^{\top} A p+b^{\top} p+c$ and $h: \mathbb{H}^n \rightarrow \mathbb{R}$ be defined by $h(p)=p^{\top} A p$. The following are equivalent
+    \begin{enumerate}
+        \item \text The function $f$ is geodesically convex.
+        \item The function $h$ is geodesically convex with $b \in \mathscr{L}$ where $\mathscr{L} := \{x \in \real^{d+1}: x^\top J x \leq 0, x_{d+1} \geq 0\}$ is known as the \emph{Lorentz cone.}
+    \end{enumerate}
+\end{prop}
+
+The previous proposition states that if we know the homogeneous quadratic function $h(p) = p^\top A p$ is geodesically convex and $b$ lies in the Lorentz cone then the corresponding nonhomogeneous function $f(p) = p^\top A p + b^\top p + c$ is geodesically convex.
+
+\begin{example}
+    Observe that the set $C := \{b \in \real^{d+1} : \|\bar{b}\|_2 \leq b_{d+1}, \ b_{d+1} \geq 0\} \subseteq \mathscr{L}$. 
+    
+    Let $A = A^\top \in \real^{(d+1) \times (d+1)}$.  If $h:\mathbb{H}^d \to \real$ defined by $h(p) = p^\top A p$ is geodesically convex then $f(p) = p^\top A p + b^\top p + c$ is geodesically convex for all $b \in C$.
+\end{example}
+
+\begin{prop}[Theorem 3.1~\cite{Ferreira2023_nonhomogeneous}]
+Let $A=A^{\top} \in \mathbb{R}^{(n+1) \times(n+1)}$ be a nonzero matrix, $b \in \mathbb{R}^{n+1}, c \in \mathbb{R}$, $f: \mathbb{H}^n \rightarrow \mathbb{R}$ be defined by $f(p)=p^{\top} A p+b^{\top} p+c$ and $g: \mathbb{H}^n \rightarrow \mathbb{R}$ be defined by $g(p)=p^T p+b^{\top} p+c$. If $f$ is a hyperbolically convex, then the function $h: \mathbb{H}^n \rightarrow \mathbb{R}$ defined by
+
+$$
+h(p)=p^T p+\left(b^A\right)^{\top} p+c
+$$
+
+is hyperbolically convex, where
+
+$$
+b^A=\frac{1}{\|A\|_2} b .
+$$
+
+\end{prop}
+
+\newpage
+\section{Problems}
+\textbf{Einstein Midpoint.} See \textbf{HyperText: Endowing FastText with Hyperbolic Geometry} paper.
+
+
+\subsubsection{Quadratic Problem on the Lorentz Model}
+
+\paragraph{Rayleigh Quotient}
+
+If $A \in \real^{(d+1) \times (d+1)}$ is symmetric positive definite then
+    \[
+    \min_{p \in \mathbb{H}^d} p^\top Q^\top A Qp
+    \]
+    is a geodesically convex problem.
+
+\paragraph{Least Squares}
+We want solve a least-squares problem restricted on the Lorentz model: 
+\[
+\min_{p \in \mathbb{H}^d} \left\{\frac{1}{2}\|Ap - b\|^2 = \frac{1}{2}\left(p^\top A^\top A p +  \left(-2b^\top A\right) p - b^\top b \right) \right\}.
+\]
+
+Since $A^\top A $ is symmetric positive semidefinite we know from Example~\ref{ex:spd_hyperbolic} that the homogeneous function $h(p) = p^\top A^\top A p$ is geodesically convex. One way to verify whether this problem is geodesically convex is to then invoke Proposition~\ref{prop:nonhom_hom} and check the condition $-b^\top A \in \mathscr{L}$, or equivalently, check the inequality
+\[ \left(2A^\top b\right)_{d+1} \leq - \sqrt{2}\| \overline{A^\top b}\|_2.
+\]
+Another way to check g-convexity is to check the conditions of Proposition~\ref{prop:nonhom_gconvex}. 
+    
+
+
+\textcolor{cyan}{Andrew: \emph{Convexity of non-homogeneous quadratic functions on the hyperbolic space} generalizes the previous results to the nonhomogenous quadratic function 
+\[
+f(p) = p^\top A p + h^\top p + c
+\]}
+
+
+ 
+
+\vskip 0.2in
+\bibliography{ref}
+
+
+\begin{remark}
+    So far our DGCP framework is restricted to functions defined on the whole Hadamard manifold. For this reason, we restrict our attention to the orthochronous Lorentz group so that the set $\mathcal{D} = \mathbb{H}^d$ in Proposition~\ref{prop:lorentz_composition}. 
+    
+    In future work, we hope to extend our framework to consider geodesically convex functions with more general geodesically convex domains.
+\end{remark}
+\newpage
+
+\end{document}
